@@ -23,7 +23,7 @@ class Feedback(BaseModel):
 llm = ChatOpenAI(model="gpt-4.1-2025-04-14")
 
 @tool
-def send_email(email_address, body):
+def send_email(email_address: str, body: str):
     """
     Tool for sending email
     """
@@ -57,7 +57,7 @@ agent = create_agent(
 )
 
 response = agent.invoke({
-    "messages": [{"role": "user", "content": "The Java Fullstack training program was well-structured and covered essential modules like Core Java, Spring Boot, Hibernate, and Angular. The hands-on projects and live coding sessions made it easier to apply concepts in real-world scenarios. The trainer was knowledgeable and supportive, and the sessions on Git and deployment provided a complete view of end-to-end development. However, the pace during the Spring Boot section felt a bit fast, and more time for practice would have been helpful. Additionally, a dedicated session on debugging and code optimization could enhance the learning experience. Some front-end sessions, especially on Angular, felt rushed, and could benefit from more real-time examples. Out of 5 I would give 4 rating for this program. Feedback given by Dhiraj Kumar. Email address - dhiraj2001@gmail.com."}]
+    "messages": [{"role": "user", "content": "The Java Fullstack training program did not meet expectations. Although it covered key technologies like Core Java, Spring Boot, Hibernate, and Angular, several sections were rushed—especially Spring Boot and Angular—leaving little time for hands-on practice. The lack of dedicated sessions on debugging and code optimization further reduced the program’s effectiveness. While the trainer was knowledgeable, the pace and structure limited meaningful learning and real-world application. Overall, the program requires better pacing and more practical focus. I would rate it 2 out of 5. Feedback given by Dhiraj Kumar. Email address - dhiraj2001@gmail.com"}]
 }, {"configurable": {"thread_id": "1"}})
 
 if "__interrupt__" in response:
