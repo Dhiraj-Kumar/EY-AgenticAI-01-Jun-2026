@@ -10,7 +10,7 @@ llm = OpenAIChatCompletionClient(
     model="gpt-4o-mini"
 )
 
-OPENWEATHER_MAP_API_KEY="0466cbde7c464dd7f56717dc5a926737"
+OPENWEATHER_MAP_API_KEY=""
 
 def getWeatherInfo(city: str):
     """
